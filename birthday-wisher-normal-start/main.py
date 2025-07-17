@@ -7,7 +7,7 @@ import random
 # HINT: Make sure one of the entries matches today's date for testing purposes. e.g.
 
 MY_EMAIL ="akhilmzh1@gmail.com"
-MY_PASSWORD = "changepassword"
+MY_PASSWORD = "test"
 
 today = datetime.now()
 today_tuple = (today.month,today.day)
@@ -29,6 +29,7 @@ if today_tuple in birthday_dict:
         contents = letter_file.read()
         contents = contents.replace("[NAME]", birthday_person["name"])
     with smtplib.SMTP("smtp.gmail.com") as connection:
+        print("here mail connection")
         connection.starttls()
         connection.login(MY_EMAIL,MY_PASSWORD)
 
